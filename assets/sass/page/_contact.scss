@@ -1,0 +1,295 @@
+
+//.js-hide-label label {
+//  opacity: 0;
+//  top: 1.5em;
+//}
+.form li.error {
+  border-color: #c0392b;
+  label,
+  input[type="text"],
+  textarea {color: #c0392b}
+}
+
+/**/
+
+#contact {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: $ebony_clay;
+  min-height: 80%;
+  color: #fff;
+  text-align: center;
+  .container {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    .row {
+      z-index: 1000;
+      height: 100%;
+      .col-full {
+        height: 100%;
+        display: table;
+      }
+    }
+  }
+}
+
+/*infobox*/
+.infobox-wrapper {display: none;}
+#infobox {
+  margin: 0;
+  @include border-radius(2px);
+  @include box-shadow(0 0 8px #000);
+  background: #f3f3f3;
+  color: #fff;
+  border: 1px solid $dodger_blue;
+  font: 10px/15px $brandon;
+  text-align: left;
+  width: 100%;
+  overflow: hidden;
+  .location {
+      padding: .5em 1em;
+      width: 100%;
+      display: block;
+      overflow: hidden;
+      padding-top: 0px;
+      box-sizing: border-box;
+      position: relative;
+      &.london_office {
+        background: url('../img/postcards/london_alt.jpg') no-repeat 0 0;
+      }
+      &:before {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        background: transparent;
+        border:1px solid $dodger_blue;
+        color: $dodger_blue;
+        content: 'X';
+        border-radius: 100%;
+        text-align: center;
+        vertical-align: middle;
+        font-weight: bold;
+        font-size: 15px;
+      &:after {
+          background: linear-gradient(#283041, rgba(40, 48, 65, 0.75));
+          position: absolute;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          z-index: 0;
+          top: 0;
+          content: '';
+      }
+    }
+      #weather {
+        width: 100%;
+        display: block;
+        padding: 0;
+        position: relative;
+        margin: 70px 0 100px 0;
+        z-index: 1;
+        li {
+          font-size: 60px;
+          line-height: 30px;
+          width: 45%;
+          display: inline-block;
+          color: #fff;
+          vertical-align: top;
+          padding: 6px;
+          span {
+            width: 100%;
+            float: left;
+            font-size: 27px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+          }
+          i[class^="icon-"] {
+            color: #fff;
+            font-family: weather;
+            font-size: 92px;
+            font-weight: normal;
+            font-style: normal;
+            line-height: 80px;
+          }
+          &:last-child {
+            width: 46%;
+            float: right;
+            span {
+              float: right;
+              width: auto;
+              font-size: 32px;
+              line-height: 0;
+              font-size: 36px;
+              text-transform: uppercase;
+              line-height: 70px;
+            }
+          }
+        }
+      }
+      p {
+          margin: 0;
+          padding: 15px 0 15px 64px;
+          font-size: 21px;
+          position: relative;
+          border-bottom: 1px solid #fff;
+          line-height: 26px;
+          font-weight: 500;
+          z-index: 1;
+          &:last-child {
+            border: none;
+            margin-bottom: 50px;
+          }
+          [class*="icon"] {
+            width: 38px;
+            height: 38px;
+            display: block;
+            line-height: 1;
+            position: absolute;
+            left: 0;
+            top: 31%;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 30px;
+            color: #fff;
+            float: left;
+          }
+        }
+    }
+}
+#map {
+  width: 100%;
+  height: 100%;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.details {
+  position: absolute;
+  width: 100%;
+}
+.details-window {
+  min-width: 500px;
+  height: 100%;
+  z-index: 1000;
+  position: absolute;
+  display: table-cell;
+  vertical-align: middle;
+  float: initial;
+  background: $ebony_clay;
+  top: 0;
+  left: 0;
+  padding: 10% 2%;
+  h2{}
+  .panel {
+    margin-bottom: 0;
+  }
+}
+
+#success,
+#error {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 100%;
+  border: none;
+  span {
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      width: 68%;
+      height: 28%;
+      overflow: auto;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      p {
+          margin-top: 6em;
+        }
+    }
+}
+#success {
+  background: rgba(47, 54, 62, 1);
+  span p {
+    color: #9bd32d;
+  }
+}
+#error span p {
+  color: #c0392b;
+}
+
+.tab {
+  @for $i from 1 through $tab-count {
+    &:checked:nth-of-type(#{$i}) ~ .tab__content:nth-of-type(#{$i}) {
+      opacity: 1;
+      max-height: initial;
+      position: relative;
+      top: 0;
+      z-index: 100;
+    }
+  }
+  &__content {
+    padding: 10px 0 0 0px;
+    background-color: transparent;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    max-height: 0;
+    opacity: 0;
+    @include transition(0.5s opacity ease-in, 0.8s transform ease);
+    .list-group-item{
+      width:100%;
+      float: left;
+      margin-top: 20px;
+      position: relative;
+      height: inherit;
+      &.enquiry {
+          > label {
+            width: 100%;
+            text-align: left;
+            position: relative;
+            float: left;
+            opacity: 1;
+            top:10px;
+            &+span {
+              width: 100%;
+              position: relative;
+              float: left;
+              display: inline-flex;
+            }
+         }
+          > textarea{
+            & + label{
+                position:absolute;
+                opacity: 0;
+                top:34px;
+                @include transition(0.3s ease-out opacity, 0.3s ease-out transform);
+            }
+            &:focus,
+            &:valid{
+              &::-webkit-input-placeholder{visibility: hidden}
+              & ~ label{
+                 @include transform(translate(0, -25px));
+                 opacity: 1;
+               }
+            }
+        }
+    }
+    }
+  }
+}

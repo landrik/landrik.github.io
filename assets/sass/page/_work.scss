@@ -1,0 +1,358 @@
+
+#portfolio {
+  h2 {
+    border-top: 1px solid $dodger_blue;
+    margin-top: -33px;
+    padding-top: 0px;
+    margin-bottom: 0;
+    display: none;
+  }
+  .col-full {
+    padding: 0;
+  }
+}
+
+ul.projects {
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  clear: both;
+  content: " ";
+  display: table;
+  > li {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+    padding: 0;
+    overflow: hidden;
+    figure {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      line-height: 0;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        @include transition(all, 300ms, ease-in-out);
+      }
+      &:hover > img {
+        @include transform(scale(1.1));
+      }
+      figcaption {
+        z-index: 100;
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0;
+        position: absolute;
+        text-align: center;
+        font-size: 15px;
+        @include transition(all, 300ms, ease-in-out);
+        background: rgba(44, 62, 80, 0.85);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        padding: 25% 0;
+        box-sizing: border-box;
+      }
+      &:hover figcaption, &:focus figcaption {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity: 1;
+      }
+      figcaption .caption-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -40px;
+        margin-left: -100px;
+        width: 200px;
+        @include transition(all, 300ms, ease-in-out);
+        h3{font-size: 16px; white-space: nowrap}
+      }
+      &:hover figcaption .caption-content, 
+      &:focus figcaption .caption-content {
+        @include transform(translate(0px, 0px));
+      }
+    }
+  }
+  li {
+    &.open:before {
+      position: absolute;
+      content: '';
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 15px solid rgb(44, 62, 80);
+      bottom: -37px;
+      right: 50%;
+      margin-right: -15px;
+    }
+    figure:hover {
+      h3.entry-title {}
+      .portfolio-navigation {
+        bottom: 50%;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.portfolio-navigation {
+  width: 100%;
+  bottom: -20px;
+  opacity: 0;
+  @include transition(bottom, 0.3s, ease-in-out);
+  left: 0;
+  position: absolute;
+  float: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline;
+  text-align: center;
+  cursor: pointer;
+  cursor: hand;
+  li {
+    display: inline-block;
+    line-height: 40px;
+    padding: 0px;
+    font-size: 1.60em;
+    text-align: center;
+    width: 50px;
+    height: 40px;
+    margin-right: 0.16em;
+    margin: 100px auto 0 auto;
+    vertical-align: middle;
+    float: none;
+    color: #fff;
+  }
+}
+
+.portfolio {
+  ul.project-meta {
+    width: 100%;
+    float: left;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+      list-style: none;
+      display: block;
+      margin-bottom: 20px;
+      clear: both;
+      float: left;
+      font-size: 1.2em;
+      text-transform: lowercase;
+    }
+    .button {}
+    li span {
+      float: left;
+      min-width: 127px;
+      text-transform: uppercase;
+      font-size: 0.80em;
+      line-height: 26px;
+    }
+    p {
+      color: #61676b;
+      margin: 0;
+      text-align: left;
+      float: left;
+      width: auto;
+    }
+  }
+  .post-thumb .browserImage {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.5);
+    padding-top: 30px;
+    .browserTop {
+      background: #404f60;
+      width: 100%;
+      height: 30px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      padding: 0 20px;
+      box-sizing: border-box;
+      .point {
+        border-radius: 20px;
+        width: 10px;
+        height: 10px;
+        top: 10px;
+        position: absolute;
+        &.red {
+          left: 15px;
+          background: #fa625a;
+        }
+        &.yellow {
+          left: 30px;
+          background: #f9c66d;
+        }
+        &.green {
+          left: 45px;
+          background: #a5d77e;
+        }
+      }
+    }
+  }
+}
+
+.range {
+  float: left;
+  width: 100%;
+  margin: 0 0 20px 0;
+  li {
+    float: left;
+    color: #687788;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    &:after {
+      content: "/";
+      margin: 0 5px;
+      color: rgba(104, 119, 136, 0.5);
+    }
+  }
+}
+
+.gateway-show {
+  width: 100%;
+  min-height: 0;
+  position: relative;
+  z-index: 10000;
+  overflow: hidden;
+  color: #fff;
+  float: left;
+  display: block;
+  padding: 30px;
+  background: rgb(44, 62, 80);
+  background-image: -webkit-linear-gradient(270deg, #272F38 0%, #2e3842 100%);
+  background-image: linear-gradient(-180deg, #272F38 0%, #2e3842 100%);
+  margin-top: 0;
+  @include transition (height, 0.2s, cubic-bezier(0.2, 1, 0.3, 1));
+  .right-side {
+    float: left;
+    width: 34%;
+    padding-left: 3%;
+    text-align: left;
+    .gatewayClose {
+          position: absolute;
+          top: 25px;
+          right: 20px;
+          z-index: 10;
+          width: 30px;
+          height: 30px;
+          cursor: inherit;
+          cursor: pointer;
+          text-align: center;
+          .icon-remove {
+            color: #fff;
+            cursor: pointer;
+            font-size: 25px;
+            font-weight: bolder;
+          }
+        }
+    .entry-content{
+        h4 {font-weight: 400;}
+        p {
+            font:{
+                weight: 200;
+                size: 16px;
+                family: $brandon
+            };
+            line-height: 20px; 
+        }
+        ul.project-details {
+          list-style: none;
+          display: inline;
+          width: 100%;
+          li {
+                width: auto;
+                margin-bottom: 5px;
+                display: inline-block;
+                text-transform: uppercase;
+                font-size: 14px;
+                letter-spacing: 0.025em;
+                font-weight: 500;
+                position: relative;
+                padding-right: 10px;
+                color: $dodger_blue;
+              &:not(.date,.client):after{
+                  content:'/';
+                  right:0;
+                  position: absolute;
+                  top: 0;       
+              }
+              span {
+                  color:#fff;
+                  font-weight: bold;
+                  text-transform: uppercase;
+                  float: left;
+                  font-size: 16px;
+                  margin-bottom: 5px;
+                  & + p {
+                  display: inline-block;
+                  margin-right: 20px;
+                  margin-left: 5px;
+                  }    
+              }
+          }  
+      } 
+    }
+  }
+  h2.entry-title {
+    font-weight: 100;
+    font-size: 18px;
+    line-height: 1;
+    margin-top: 0;
+    padding: 0;
+    font-size: 2.250em;
+    font-weight: 300;
+    margin-bottom: 50px;
+  }
+  .left-side {
+    width: 62.6%;
+    float: left;
+  }
+  .portfolio-loading {
+        position: relative;
+        height: auto;
+        width: inherit;
+        display: inline-block;
+        .spinner {
+              margin: 0;
+              padding: 0;
+              display: list-item;
+              text-align: center;
+              list-style: none;
+              @include transition(all, 0.2s);
+              width: 100%;
+              position: absolute;
+              top: 0;
+              vertical-align: middle;
+              margin-top: -20px;
+              li {
+                display: inline-block !important;
+                height: 25px;
+                width: 6px;
+                margin-right: 5px;
+                background: #fff;
+                &:nth-child(1) {
+                  @include animation(opacity 900ms 800ms linear);
+                }
+                &:nth-child(2) {
+                  @include animation(opacity 900ms 1000ms linear);
+                }
+                &:nth-child(3) {
+                  @include animation(opacity 900ms 1200ms linear);
+                }
+              }
+            }
+    }    
+}
