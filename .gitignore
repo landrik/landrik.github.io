@@ -3,5 +3,3 @@
 assets
 .DS_store
 _config.build.yml
-_site/assets/components
-_site/assets/img/misc
