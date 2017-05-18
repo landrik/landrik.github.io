@@ -1,6 +1,6 @@
-_site
 .sass-cache
 .jekyll-metadata
 assets
 .DS_store
 _config.build.yml
+_site/assets/components
