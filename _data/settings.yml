@@ -7,7 +7,7 @@ description: Front-end developer // Free thinker // UX/UI Designer
 menu:
 - {index: 2, name: Profile, url: '#profile'}
 - {index: 3, name: Portfolio, url: '#portfolio'}
-- {index: 4, name: Contact, url: '#contact'}
+#- {index: 4, name: Contact, url: '#contact'}
 - {index: 1, name: Home, url: '#intro'}
 
 #-------------------------------
