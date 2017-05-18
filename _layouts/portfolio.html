@@ -1,0 +1,38 @@
+{% assign projects = site.data.settings.projects %}
+<article class="portfolio" data-target="">
+  <div class="post-thumb left-side">
+      <figure class="browserImage">
+          {% for project in projects%}
+              {% for image in page.images %}
+                <img src="assets/img/projects/{{ project.folder }}/{{ image.name }}" title="{{ image.title }}" class="" alt="{{ image.title }}" />
+              {% endfor %}
+          {% endfor %}
+          <div class="browserTop">
+            <div class="point red"></div>
+            <div class="point yellow"></div>
+            <div class="point green"></div>
+         </div>      
+</div>
+    </figure>
+  </div>
+  <div class="right-side">
+    <div class="gatewayClose"><i class="icon-remove"></i></div>
+    <div class="entry-content">
+        <h5>The Brief</h5>
+        <p>{{ page.brief }}</p>
+
+        <h5>The results</h5>
+        <p>{{ page.results }}</p>
+
+        <h5>Project Details</h5>
+        <ul class="project-details">
+            <li class="date"><span>Date:</span><p>{{ page.date }}</p></li>	
+            <li class="client"><span>Client:</span><p>{{ page.client }}</p></li>
+            {% for category in page.categories %}
+            <li>{{ category }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+  </div>
+</article>

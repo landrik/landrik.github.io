@@ -1,0 +1,247 @@
+/* VENDOR PREFIXES
+ * ============================================= */
+@mixin prefix($property, $value, $vendors: webkit khtml ms moz o) {
+    @if $vendors{
+        @each $vendor in $vendors{
+            #{'-' + $vendor + '-' + $property}: #{$value}
+        }
+    }
+    #{$property}: #{$value};
+}
+
+
+
+/* FONT-FACE
+ * ============================================= */
+@mixin font-face($fontname: "", $fontfile: "", $path: "", $weightnames: "", $weightnos: "", $fontvariant: "") {
+    $totalnofonts: length($weightnames);
+    @if ($totalnofonts > 0) {
+        $path: $path + $fontfile;
+        $i: 0;
+        @while $i < $totalnofonts {
+            $weightnameidx: $i + 1;
+            $weightno: nth($weightnos, $weightnameidx);
+            $weightname: nth($weightnames, $weightnameidx);
+
+            @font-face {
+                font-family: "#{$fontname}";
+                src: url('#{$path}-#{nth($weightnames, $weightnameidx)}#{$fontvariant}.eot');
+                src: url('#{$path}-#{nth($weightnames, $weightnameidx)}#{$fontvariant}.eot?#iefix') format('embedded-opentype'),
+                    url('#{$path}-#{nth($weightnames, $weightnameidx)}#{$fontvariant}.woff') format('woff'),
+                    url('#{$path}-#{nth($weightnames, $weightnameidx)}#{$fontvariant}.svg##{$fontfile}#{$weightname}') format('svg'),
+                    url('#{$path}-#{nth($weightnames, $weightnameidx)}#{$fontvariant}.ttf') format('truetype');
+                font-weight: $weightno;
+                font-style: normal;
+            }
+            $i: $i + 1;
+        }
+    }
+}
+
+/* FONT-ICONS
+ * ============================================= */
+@mixin icon($position: before, $icon: false, $styles: true) {
+    @if $position == both {
+        $position: 'before, &:after';
+    }
+    // Either a :before or :after pseudo-element, or both, defaulting to :before
+    &:#{$position} {
+        @if $icon {
+            // A particular icon has been specified
+            content: "#{map-get($icons, $icon)}";
+        }
+        @if $styles {
+            // Supportive icon styles required
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-family: $font-icon;
+        }
+        // Include any extra rules supplied for the pseudo-element
+        @content;
+    }
+}
+
+@mixin fa-icon($icon) {
+  display: inline-block;
+  font: normal normal normal #{$fa-font-size-base}/1 FontAwesome; // shortening font declaration
+  font-size: inherit; // can't have font-size inherit on line above, so need to override
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0); // ensures no half-pixel rendering in firefox
+  @extend .fa;
+  @extend .fa-#{$icon};
+}
+
+/* OPACITY
+ * ============================================= */
+@mixin opacity($trans: 0.75) {
+    @include prefix(opacity, $trans);
+    filter: alpha(opacity = $trans * 100);
+}
+
+/* ROTATE
+ * ============================================= */
+@mixin rotate($degree: 7deg) {
+    @include prefix(rotate, $degree);
+}
+
+/* BORDER BOX - http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * ============================================= */
+@mixin border-box() {
+    @include prefix(box-sizing, border-box);
+}
+@mixin border-radius($radius: 3px) {
+  @include prefix(border-radius, $radius);
+}
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+////////////////////////////////////////////////////////////
+// UNFINISHED MIXINS //////////////////////////////////////
+//////////////////////////////////////////////////////////
+
+
+/* SHADOW MIXINS - up to 6 shadow declarations for each style
+ * ============================================= */
+@mixin box-shadow($offset: 1px, $spread: 2px, $color: #999999) {
+  -webkit-box-shadow: 0px $offset $spread $color;
+  -khtml-box-shadow: 0px $offset $spread $color;
+  -moz-box-shadow: 0px $offset $spread $color;
+  -ms-box-shadow: 0px $offset $spread $color;
+  -o-box-shadow: 0px $offset $spread $color;
+  box-shadow: 0px $offset $spread $color;
+}
+@mixin no-box-shadow {
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -khtml-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+
+/* GRADIENTS
+ * ============================================= */
+@mixin linear-gradient($start: white, $end: #cccccc) {
+   background-color: $start;
+   //background-image: url(images/fallback-gradient.png);
+   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($start), to($end));
+   background-image: -webkit-linear-gradient(top, $start, $end);
+   background-image:    -moz-linear-gradient(top, $start, $end);
+   background-image:     -ms-linear-gradient(top, $start, $end);
+   background-image:      -o-linear-gradient(top, $start, $end);
+   background-image:         linear-gradient(top, $start, $end);
+}
+@mixin radial-gradient($r1: 0, $r2: 200, $start: white, $end: #cccccc, $m1: 0%, $m2: 100%) {
+  background: $end;
+  background: -moz-radial-gradient(center 45deg, circle closest-side, $start $m1, $end $m2);
+  background: -webkit-gradient(radial, center center, $r1, center center, $r2, from($start), to($end));
+}
+
+
+/* TRANSITIONS
+ * ============================================= */
+/* ease, ease-in, ease-out, ease-in-out, linear, */
+/* cubic-bezier(1.0, 0, 0, 1.0) */
+
+//@mixin transition($target: all, $duration: 0.5s, $transition: ease-in-out) {
+//  @include prefix(transition, $target $duration $transition);
+//}
+
+
+@mixin transition($transitions...) {
+  $unfoldedTransitions: ();
+  @each $transition in $transitions {
+    $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+  }
+  @include prefix(transition, $unfoldedTransitions);
+
+}
+
+/* translate(x, y) moves the position of an item */
+/* scale(w, h) changes the size (scale) 1-0 scale */
+/* rotate(rad or deg) Rotates and item */
+/* skew(x, y in deg/rad) skews and item */
+/* matrix() Gives you exact control over an item */
+/* You can chain tranforms together -webkit-transform: skew(15deg, 15deg) translate(20px, 20px) scale(.5, .5); */
+
+//Ex. http://jsfiddle.net/TdMgm/1/
+
+@mixin perspective($p: 800) {
+  //Use for the parent container when using translate3d function
+  -webkit-perspective: $p; }
+@mixin transform($transform1: rotate(25deg), $transform2: scale(1, 1), $transform3: translate(0px, 0px)) {
+  //Options: translate(x, y), translateY, scale(.9, 2), scaleY, rotate(25deg), skew(10deg, 10deg)
+  //rotate3d(x,y,z, deg), rotateX(deg), rotateY(deg), rotateZ(deg), traslate3d(x, y, z) Only works in Safari
+    @include prefix(transform, $transform1 $transform2 $transform3);
+}
+@mixin transition_bezier($time: 500ms) {
+  -webkit-transition: all $time cubic-bezier(0, 1, 1, 1);
+  -moz-transition: all $time cubic-bezier(0, 1, 1, 1);
+  -o-transition: all $time cubic-bezier(0, 1, 1, 1);
+  transition: all $time cubic-bezier(0, 1, 1, 1); }
+
+////@mixin animation($str) {
+//  @include prefix(animation, $str);
+//}
+
+// SET THIS BEFORE THE ANIMATION
+@mixin animation($animate) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    //@include prefix(animation, $animations);
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+// @-webkit-keyframes $name
+//   from
+//     -webkit-transform: rotate(0deg)
+//   to
+//     -webkit-transform: rotate(30deg)
+//@mixin animation($name: myanim, $time: 2s, $count: infinite, $function:ease-in-out, $delay: 0s) {
+//  @include prefix(animation, $name $time $count ease-in-out $delay);
+//}
+//-webkit-animation-name: $name
+//-webkit-animation-duration: $time
+//-webkit-animation-iteration-count: $count //Can ben 'infinite' or '1, 2, 3' etc.
+//-webkit-animation-direction: alternate //
+//-webkit-animation-timing-function: ease-in-out
+//-webkit-animation-delay: $delay }

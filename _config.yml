@@ -1,0 +1,63 @@
+#site settings
+safe: true
+lsi: false
+
+title: Landrik || Code &amp; Design by Landry Karege
+tagline: The Time is now
+author :
+  name : Landry Karege
+  email : landrik@gmail.com
+  github : landrik
+  twitter : landrik
+  linkedin: landrik
+  facebook : landrik
+
+description: Landry Karege is a London based Freelance UX/UI Digital Designer and Front End Developer.
+keywords: [landrik, design, website, experience, websites, website design, apps, interactive, digital, creative, landry, karege, London]
+
+baseurl: ""
+url: ""
+
+# Timezone
+timezone: Europe/London
+
+# Footer settings
+footer:
+  copyright: landrik.com
+  location: London UK
+  social: Around the Web
+  credits: Credits
+
+# Social networks usernames
+social:
+  - title: twitter
+    url: http://twitter.com/landrik
+  - title: linkedin
+    url: http://www.linkedin.com/in/landrik
+  - title: github
+    url: http://github.com/landrik
+  - title: codepen
+    url: http://codepen.com/landrik
+
+
+
+analytics :
+    provider : google
+    google :
+        tracking_id : 'UA-33367937-1'
+
+# API settings
+google_api_key:
+
+# Build settings
+sass:
+  sass_dir: assets/sass
+  style: compressed
+
+kramdown:
+  entity_output: numeric
+  smart_quotes: ['apos', 'apos', 'quot', 'quot']
+  input: GFM
+
+permalink: pretty
+port: 4000

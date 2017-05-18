@@ -1,0 +1,146 @@
+#profile {
+  h2{color: #a8a8a8}
+  p {
+      margin-bottom: 10px;
+      font:{
+          size: 21px;
+          family: $brandon;
+          weight: 400};
+      line-height: 25px;  
+    }
+  #quotes_testimonials {
+            padding: 3.5em 6em;
+            overflow: hidden;
+            position: relative;
+            background: $ebony_clay;
+            color: #fff;
+            &:before {
+              content: "\e00d";
+              background: transparent;
+              position: absolute;
+              left: 20px;
+              top: 40%;
+              width: 50px;
+              height: 50px;
+              font-family: $font-icon;
+              text-align: center;
+              line-height: 50px;
+              border-radius: 100%;
+              border: 1px solid $dodger_blue;
+              font-size: 29px;
+              color: $dodger_blue;
+            }
+            #quote-slider {
+                width: 100%;
+                height:100%;
+                display: table;
+                overflow: hidden;
+                .quote {
+                    width:100%;
+                    height:100%;
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-left: 4%;
+                    blockquote {
+                        position: relative;
+                        float: left;
+                        width: 91%;
+                        margin-left: 25px;
+                        font-size: 18px;
+                        line-height: 25px;
+                        font-family: $brandon;
+                        font-weight: 600;
+                        cite {
+                            font-style: normal;
+                            font-size: 0.96em;
+                            display: block;
+                            margin-top: 1em;
+                            font-family: $brandon;
+                            font-weight: bold;
+                            float: right;
+                            text-transform: uppercase;
+                          }
+                          &:before {
+                            font-family: $brandon;
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 54px;
+                            line-height: 48px;
+                            color: #ddd;
+                            display: block;
+                            content: "\201C";
+                            position: absolute;
+                            left: -35px;
+                            top: -2px;
+                          }
+                          &:after {
+                            font-family: $brandon;
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 32px;
+                            line-height: 28px;
+                            color: #ddd;
+                            display: inline-block;
+                            content: "\201D";
+                            height: 28px;
+                            margin-left: 5px;
+                            vertical-align: middle;
+                          }
+                        }
+                    h2 {margin: 0;}
+                  }
+              }
+          } 
+  #skillbar {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+  }
+  .skill {
+    margin: 0 auto 20px auto;
+    float: none;
+    text-align: center;
+    display: inline-block;
+    h4 {
+        font-size: 16px;
+        line-height: 1;
+        margin: 15px;
+        font-weight: 300;
+      }
+    p {
+      font-size: 11px;
+      white-space: pre-wrap;
+      margin: 0;
+      padding: 0;
+      width: 80px;
+      display: inline-block;
+      display: none;
+    }
+  }
+  .chart {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin: 0;
+    text-align: center;
+    canvas {
+      position: absolute;
+      left: 5px;
+      top: 5px;
+    }
+    .percent {
+      line-height: 100px;
+      display: inline-block;
+      font-size: 19px;
+      &:after {
+        content: '%';
+      }
+    }
+  }
+  .blurb{}  
+  .col-md-6:nth-of-type(1){padding-left:30px}    
+  .col-md-6:nth-of-type(2){padding-right:30px} 
+} 
+  
+   

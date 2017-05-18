@@ -1,0 +1,91 @@
+<section id="contact" class="section">
+    <div class="container">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md">
+                    <div class="col-md-5 details-window">   
+                        <h2 class="section-title">Let's start something great together</h2>
+                        <form id="form-contact" action="" name="form-contact" class="form" method="post" autocomplete="off">
+                            <div class="panel panel-default">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <input type="text" placeholder="Your Name" id="name" name="name" tabindex="1" required />
+                                        <label for="name">Your Name:</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input type="text" placeholder="Your Email" id="email" name="email" tabindex="2" required />
+                                        <label for="email">Your Email:</label>
+                                    </li>
+                                    <li class="list-group-item options">
+                                        <label for="subject">Subject: I want </label>
+                                        <div id="iwant" class="option-group field">
+                                            <input name="projSubject" type="radio" class="tab options_check" value="hello" checked="checked" required />
+                                            <label class="option label_radio" for="hello">to say hello</label>
+
+                                            <input name="projSubject" type="radio" class="tab options_check" value="quote" required />
+                                            <label class="option label_radio" for="quote">a quote</label>     
+
+                                            <div class="tab__content">
+                                                <div class="list-group-item enquiry">
+                                                    <textarea placeholder="Message…" id="message" name="message" tabindex="3" required></textarea>
+                                                    <label for="message">Message:</label>
+                                                </div>
+                                            </div>
+                                            <div  class="tab__content">
+                                                <div class="list-group-item options enquiry">
+                                                    <label for="project_type">What would I be working on?</label>
+                                                    <div class="option-group field">
+                                                        <span class="checkbox">
+                                                            <input name="projType[]" type="checkbox" class="" value="website" checked="checked" required="" />
+                                                            <label class="option label_check">Website</label>
+                                                        </span>
+                                                        <span class="checkbox">
+                                                            <input name="projType[]" type="checkbox" class="" value="mobile" required="" /> 
+                                                            <label for="mobile" class="option label_check">Mobile</label>
+                                                        </span>
+                                                        <span class="checkbox">
+                                                            <input name="projType[]" type="checkbox" class="" value="other" required="" />  
+                                                            <label class="option label_check">Other</label>
+                                                        </span>    
+                                                    </div>
+                                                </div>
+                                                <div class="list-group-item options enquiry">
+                                                    <label for="budget">What is your budget?: </label>
+                                                    <input type="text" id="budget" name="projBudget" class="slider-input" value="£1500" />
+                                                    <div class="slider-wrapper">
+                                                        <div id="budget-slider"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group-item options enquiry">
+                                                    <textarea id="project_description" name="projDesc" placeholder="Project Description: What are the main goals of this project? For example: increasing conversion, modernizing website, improving brand recognition, boosting usability, etc..." id="projDesc" name="projDesc" required></textarea>
+                                                    <label for="projectDesc">Project description?</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <input id="submit" class="button button-submit" type="submit" name="submit" value="Send message">
+                            </div>
+                       </form>
+                        <div id="success"></div>
+                        <div id="error">
+                          <span>
+                            <p>Something went wrong, try refreshing your browser and submitting your form again.</p>
+                          </span>
+                        </div>
+                        <ul class="social-links clearfix">
+                            {% for network in site.social %}
+                                <li>
+                                    <a href="{{ network.url }}" title="{{ network.title }}" target="_blank"><i class="icon-{{ network.title }}"></i></a>
+                                </li>
+                                {% endfor %}
+                            <li class="footer-copy">&copy; {{ site.footer.copyright }} 2013 - 20{{ site.time | date: '%y' }} | Made with <span class="heart">&hearts;</span> by {{ site.author.name }}.</li>	
+                        </ul>
+                    </div>
+                    <div id="map"></div>
+                    {% include infobox.html %}
+                </div>
+            </div>    
+        </div>	
+    </div>
+</section>

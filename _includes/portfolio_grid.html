@@ -1,0 +1,28 @@
+<section id="portfolio" class="section">
+<div class="container">
+    <div class="section-content">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="row">
+            <div class="col-md">
+                <ul class="projects grids">
+                {% for project in site.data.settings.projects %}
+                <li class="shot col-md-4">
+                    <figure>
+                        <img data-folder="{{project.folder}}" src="assets/img/projects/{{project.folder}}/thumb.png" alt="{{ project.name }}" />
+                        <figcaption>
+                        <div class="caption-content">
+                            <h3 class="entry-title">{{ project.name }}</h3>
+                            <ul class="portfolio-navigation">
+                              <li class="portfolio-trigger" data-folder="{{project.folder}}"><i class="icon-eye-open"></i></li>
+                            </ul>
+                         </div>
+                        </figcaption>   
+                    </figure>
+                </li>
+                {% endfor %}
+            </ul>
+            </div>
+        </div>    
+    </div>
+</div>
+</section> 

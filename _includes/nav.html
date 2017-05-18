@@ -1,0 +1,9 @@
+<header>
+	<nav id="nav">
+        <ul class="clearfix onepage-pagination">
+		{% for item in site.data.settings.menu %}
+			<li><a href="{{ item.url }}" data-index="{{ item.index }}"> {{ item.name }} </a></li>
+		{% endfor %}
+        </ul>    
+	</nav>
+</header>
