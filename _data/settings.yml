@@ -32,10 +32,10 @@ skills:
 
 projects:
 - {name: BBC Asset & Marketing, folder: 'proj-1'}
-- {name: America As You Like It, folder: 'proj-2'}
+#- {name: America As You Like It, folder: 'proj-2'}
 - {name: Oficial London Theatre, folder: 'proj-3'}
-- {name: Gosh Pr, folder: 'proj-4'}
-- {name: Ronnie Wood, folder: 'proj-5'}
+#- {name: Gosh Pr, folder: 'proj-4'}
+#- {name: Ronnie Wood, folder: 'proj-5'}
 - {name: Marketing Print, folder: 'proj-6'}
 
 #Site default images and content
