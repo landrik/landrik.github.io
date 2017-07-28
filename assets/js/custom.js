@@ -1,8 +1,8 @@
 (function ($) {
     setTimeout(function(){
-		$('body').addClass('loaded');
-	}, 3000);
-  
+		    $('body').addClass('loaded');
+	   }, 3000);
+
     function isElementInViewport(elem) {
         var $elem = $(elem);
         // Get the scroll position of the page.
@@ -19,9 +19,9 @@
     $(".main").onepage_scroll({
         sectionContainer: "section",
         responsiveFallback: 768,
-        animationTime: 1000,  
+        animationTime: 1000,
         easing: "ease",
-        updateURL: false,  
+        updateURL: false,
         loop: false,
         pagination: false,
         //beforeMove: null,
@@ -46,7 +46,7 @@
                 onStep: function(from, to, percent) {
                     $(this.el).find('.percent').text(Math.round(percent));
                 }
-            }); 
+            });
            }
         }
     });
@@ -74,7 +74,7 @@
                     newHTML = 'work/' + newFolder + '/index.html',
                     //targetId  = $(this).attr('id'),
                     parent = $(this).parent().parent().parent().parent().parent();
-                
+
                 $('ul.projects li').each(function(){
                     $(this).removeClass('open');
                 });
@@ -91,7 +91,7 @@
                 $body.animate({
                     scrollTop:gateway.offset().top - $(".grids .open").height()-110
                 }, 600, function() {
-                    gateway.css('height', 'auto'); 
+                    gateway.css('height', 'auto');
                     gateway.fadeIn('slow');
                 });
 
@@ -100,7 +100,7 @@
              });
         });
     };
-    
+
 //    function workLoad(){
 //        $.ajaxSetup({ cache: true });
 //        $('.thumb-unit').click(function(){
@@ -113,11 +113,11 @@
 //                $('.project-title').text(newTitle)
 //            });
 //    };
-    
-    
-    
-    
-    $('ul.projects').Gateway();	
+
+
+
+
+    $('ul.projects').Gateway();
 
 
     //GOOGLE MAPS
@@ -155,7 +155,7 @@
           var panes = this.getPanes();
           panes.overlayImage.appendChild(div);
         }
-        // Position the overlay 
+        // Position the overlay
         var point = this.getProjection().fromLatLngToDivPixel(this.latlng_);
         if (point) {
           div.style.left = point.x + 'px';
@@ -183,7 +183,7 @@
     // Set styles.
     mapStyle = [
         {
-     "featureType": "water",
+          "featureType": "water",
          "elementType": "geometry",
          "stylers": [{
          "color": "#000000"
@@ -293,7 +293,7 @@
     }];
     styledMap = new google.maps.StyledMapType(mapStyle);
 
-    // Map properties.		
+    // Map properties.
     myLatlng = new google.maps.LatLng(51.65170, -0.07316);
     myCenter = new google.maps.LatLng(51.65170, -0.07316);
     mapOptions = {
@@ -387,8 +387,7 @@
     if($.support.placeholder) {
         $('.form li:not(.options)').each(function(){
             $(this).addClass('js-hide-label');
-        });  
-
+        });
         // Code for adding/removing classes here
         $('.form li:not(.options)').find('input, textarea').on('keyup blur focus click', function(e){
             // Cache our selectors
@@ -397,19 +396,19 @@
 
             if (e.type == 'keyup') {
                 if( $this.val() == '' ) {
-                    $parent.addClass('js-hide-label'); 
+                    $parent.addClass('js-hide-label');
                 } else {
-                    $parent.removeClass('js-hide-label');   
-                }                     
-            } 
+                    $parent.removeClass('js-hide-label');
+                }
+            }
             else if (e.type == 'blur') {
                 if( $this.val() == '' ) {
                     $parent.addClass('js-hide-label');
-                } 
+                }
                 else {
                     $parent.removeClass('js-hide-label').addClass('js-unhighlight-label');
                 }
-            } 
+            }
             else if (e.type == 'focus') {
                 if( $this.val() !== '' ) {
                     $parent.removeClass('js-unhighlight-label');
@@ -422,7 +421,7 @@
             }
         });
     }
-    function setupLabel() {
+      function setupLabel() {
         if ($('.label_check input').length) {
             $('.label_check').each(function () {
                 $(this).removeClass('c_on');
@@ -457,19 +456,19 @@
 
     //BUDGET SLIDER
     function createSlider(){
-    $( "#budget-slider" ).slider({
+      $( "#budget-slider" ).slider({
         range: "min", value: 1500,
         min: 500, max: 5000,
         step: 500, slide: function(event, ui) {
             $("#projBudget").val("£" + ui.value);
         }
     });
-    $("#projBudget").val("£" + $("#budget-slider").slider("value"));
+      $("#projBudget").val("£" + $("#budget-slider").slider("value"));
     };
 
     //setupLabel();
     createSlider();
-    
+
     //text -slider
     function textRotator(el) {
       var words = $(el),
@@ -491,7 +490,65 @@
       timer = setInterval(autoSlide, 3000);
     };
     textRotator('.change-text span');
- 
+
+
+    //slideshow
+
+    // function Slideshow( element ) {
+  	// 	this.el = document.querySelector( element );
+  	// 	this.init();
+  	// }
+  	// Slideshow.prototype = {
+  	// 	init: function() {
+  	// 		this.wrapper = this.el.querySelector( ".slider-wrapper" );
+  	// 		this.slides = this.el.querySelectorAll( ".slide" );
+  	// 		this.previous = this.el.querySelector( ".slider-previous" );
+  	// 		this.next = this.el.querySelector( ".slider-next" );
+  	// 		this.index = 0;
+  	// 		this.total = this.slides.length;
+  	// 		this.timer = null;
+    //
+  	// 		this.action();
+  	// 		this.stopStart();
+  	// 	},
+  	// 	_slideTo: function( slide ) {
+  	// 		var currentSlide = this.slides[slide];
+  	// 		currentSlide.style.opacity = 1;
+    //
+  	// 		for( var i = 0; i < this.slides.length; i++ ) {
+  	// 			var slide = this.slides[i];
+  	// 			if( slide !== currentSlide ) {
+  	// 				slide.style.opacity = 0;
+  	// 			}
+  	// 		}
+  	// 	},
+  	// 	action: function() {
+  	// 		var self = this;
+  	// 		self.timer = setInterval(function() {
+  	// 			self.index++;
+  	// 			if( self.index == self.slides.length ) {
+  	// 				self.index = 0;
+  	// 			}
+  	// 			self._slideTo( self.index );
+    //
+  	// 		}, 3000);
+  	// 	},
+  	// 	stopStart: function() {
+  	// 		var self = this;
+  	// 		self.el.addEventListener( "mouseover", function() {
+  	// 			clearInterval( self.timer );
+  	// 			self.timer = null;
+    //
+  	// 		}, false);
+  	// 		self.el.addEventListener( "mouseout", function() {
+  	// 			self.action();
+    //
+  	// 		}, false);
+  	// 	}
+  	// };
+  	// document.addEventListener( "DOMContentLoaded", function() {
+  	// 	var slider = new Slideshow( "#main-slider" );
+  	// });
+
+
 })(jQuery);
-
-

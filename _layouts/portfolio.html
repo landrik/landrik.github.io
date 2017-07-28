@@ -2,16 +2,20 @@
 <article class="portfolio" data-target="">
   <div class="post-thumb left-side">
       <figure class="browserImage">
+        <div id="browserImage">
           {% for project in projects%}
+          {% if page.id == project.folder%}
               {% for image in page.images %}
                 <img src="assets/img/projects/{{ project.folder }}/{{ image.name }}" title="{{ image.title }}" class="" alt="{{ image.title }}" />
               {% endfor %}
+              {% endif %}
           {% endfor %}
+        </div>
           <div class="browserTop">
             <div class="point red"></div>
             <div class="point yellow"></div>
             <div class="point green"></div>
-         </div>      
+         </div>
 </div>
     </figure>
   </div>
@@ -26,7 +30,7 @@
 
         <h5>Project Details</h5>
         <ul class="project-details">
-            <li class="date"><span>Date:</span><p>{{ page.date }}</p></li>	
+            <li class="date"><span>Date:</span><p>{{ page.date }}</p></li>
             <li class="client"><span>Client:</span><p>{{ page.client }}</p></li>
             {% for category in page.categories %}
             <li>{{ category }}</li>

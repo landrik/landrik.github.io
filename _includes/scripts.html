@@ -9,6 +9,17 @@
 
         <script type="text/javascript" src="assets/js/app.min.js"></script>
         <script type="text/javascript" src="assets/js/custom.js"></script>
+				<script type="text/javascript">
+						$("#browserImage > img:gt(0)").hide();
+						setInterval(function() {
+							$('#browserImage > img:first')
+							.fadeOut(1000)
+							.next()
+							.fadeIn(1000)
+							.end()
+							.appendTo('#browserImage');
+						}, 5000);
+				</script>
 		<script type="text/javascript">
 		  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', '{{ site.analytics.google.tracking_id }}']);
@@ -19,7 +30,7 @@
 		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		  })();
 		</script>
-        
+
 		<!--[if lt IE 9]>
 		<script type="text/javascript" src="assets/js/excanvas.js"></script>
 		<![endif]-->
