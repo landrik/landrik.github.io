@@ -247,7 +247,8 @@
 
   #portfolio ul.projects > li {
     width:50%;
-    height: calc(((100vw - 260px) / 3) + 100px);
+    // height: calc(((100vw - 260px) / 3) + 100px);
+    height: calc(((100vw - 730px) / 3) + 100px);
     figure img {
       height: auto;
     }

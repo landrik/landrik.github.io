@@ -10,11 +10,9 @@ categories:
   - Frontend Development
   - Branding & Print Design
 brief:
-  "In the Spring of 2012, I was asked to customised 'OnBrand' a North Plains asset management tool for BBC Marketing and Assets.
-  Working for a big household name such as BBC, it was clear from the start to my colleagues and I, that we needed to deliver something worthy."
+  "Implement OB First generation for BBC Marketing & Assets"
 results:
-  "In the Spring of 2012, I was asked to customised 'OnBrand' a North Plains asset management tool for BBC Marketing and Assets. Working for
-  a big household name such as BBC, it was clear from the start to my colleegue and I, that we needed to deliver something worthy."
+  "Working for a big household name such as BBC, it was clear from the start, that we needed to deliver something worthy. The challenge was that this was the first project of its kind, its success guaranteed more projects like it."
 images:
   - name: template1.jpg
     title: homepage screenshot

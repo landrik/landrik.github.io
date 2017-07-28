@@ -26,15 +26,16 @@ seo:
 skills:
 - {name: ADOBE Tools, value: '95'}
 - {name: HTML5 & CSS, value: '98'}
-- {name: JS & jQuery, value: '75'}
-- {name: PHP & MySQL, value: '80'}
+- {name: JS & jQuery, value: '70'}
+- {name: PHP & MySQL, value: '70'}
 
 
 projects:
 - {name: BBC Asset & Marketing, folder: 'proj1'}
 - {name: Oficial London Theatre, folder: 'proj3'}
-- {name: Marketing Print, folder: 'proj6'}
+- {name: BUPA Inspire, folder: 'proj7'}
 
+#- {name: Marketing Print, folder: 'proj6'}
 #- {name: America As You Like It, folder: 'proj-2'}
 #- {name: Gosh Pr, folder: 'proj-4'}
 #- {name: Ronnie Wood, folder: 'proj-5'}
