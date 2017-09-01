@@ -3,7 +3,7 @@
 .form {
   ul {
     li {
-       
+
         border-bottom: 1px solid #fff;
         margin-bottom: 0px;
         position: relative;
@@ -97,7 +97,7 @@
                       border-width: 0 0 3px 3px;
                       @include transform( rotate(-45deg));
                     }
-                  }  
+                  }
                 }
               }
             }
@@ -134,7 +134,7 @@
                 top: 0;
                 left: auto;
                 & + input {
-                    &[type="radio"], 
+                    &[type="radio"],
                     &[type="checkbox"] {
                       float: left;
                       display: inline-block;
@@ -447,18 +447,19 @@
       @include border-radius(20px);
       -ms-touch-action: none;
       touch-action: none;
-      margin-top: -3px;
+      margin-top: 0px;
       outline: 0;
       &:before {
         content: '';
         width: 6px;
         height: 6px;
+        left: 2px;
+        top: 2px;
         position: absolute;
         background-color: $dodger_blue;
         @include border-radius(10px);
         z-index: 2;
-        left: 5px;
-        top: 5px;
+
       }
     }
     .ui-slider-range {
@@ -519,9 +520,9 @@
   }
 }
 
-::-webkit-input-placeholder, 
-:-moz-placeholder, 
-::-moz-placeholder, 
+::-webkit-input-placeholder,
+:-moz-placeholder,
+::-moz-placeholder,
 ::-ms-input-placeholder {
   color: #fff;
 }
@@ -581,7 +582,7 @@
           }
         }
       }
-  }        
+  }
 }
 .footer-copy {
   font-size: 16px;

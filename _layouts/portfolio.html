@@ -3,8 +3,8 @@
 
 <article class="portfolio" data-target="">
   <div class="post-thumb left-side">
-      <figure class="browserImage">
-        <div class="cycle-slideshow" data-cycle-fx="fade" data-cycle-fx="fade" data-cycle-auto-height="false" data-cycle-slides=">img" data-cycle-timeout="10000">
+      <figure class="browser-content">
+        <div class="browser-image cycle-slideshow" data-cycle-fx="fade" data-cycle-fx="fade" data-cycle-auto-height="false" data-cycle-slides=">img" data-cycle-timeout="10000">
           {% for project in projects%}
           {% if page.id == project.folder%}
               {% for image in page.images %}
@@ -13,7 +13,7 @@
               {% endif %}
           {% endfor %}
       </div>
-          <div class="browserTop">
+          <div class="browser-top">
             <div class="point red"></div>
             <div class="point yellow"></div>
             <div class="point green"></div>

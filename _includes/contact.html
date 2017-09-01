@@ -3,7 +3,7 @@
         <div class="section-content">
             <div class="row">
                 <div class="col-md">
-                    <div class="col-md-5 details-window">   
+                    <div class="col-md-5 details-window">
                         <h2 class="section-title">Let's start something great together</h2>
                         <form id="form-contact" action="" name="form-contact" class="form" method="post" autocomplete="off">
                             <div class="panel panel-default">
@@ -23,7 +23,7 @@
                                             <label class="option label_radio" for="hello">to say hello</label>
 
                                             <input name="projSubject" type="radio" class="tab options_check" value="quote" required />
-                                            <label class="option label_radio" for="quote">a quote</label>     
+                                            <label class="option label_radio" for="quote">a quote</label>
 
                                             <div class="tab__content">
                                                 <div class="list-group-item enquiry">
@@ -40,13 +40,13 @@
                                                             <label class="option label_check">Website</label>
                                                         </span>
                                                         <span class="checkbox">
-                                                            <input name="projType[]" type="checkbox" class="" value="mobile" required="" /> 
+                                                            <input name="projType[]" type="checkbox" class="" value="mobile" required="" />
                                                             <label for="mobile" class="option label_check">Mobile</label>
                                                         </span>
                                                         <span class="checkbox">
-                                                            <input name="projType[]" type="checkbox" class="" value="other" required="" />  
+                                                            <input name="projType[]" type="checkbox" class="" value="other" required="" />
                                                             <label class="option label_check">Other</label>
-                                                        </span>    
+                                                        </span>
                                                     </div>
                                                 </div>
                                                 <div class="list-group-item options enquiry">
@@ -79,13 +79,13 @@
                                     <a href="{{ network.url }}" title="{{ network.title }}" target="_blank"><i class="icon-{{ network.title }}"></i></a>
                                 </li>
                                 {% endfor %}
-                            <li class="footer-copy">&copy; {{ site.footer.copyright }} 2013 - 20{{ site.time | date: '%y' }} | Made with <span class="heart">&hearts;</span> by {{ site.author.name }}.</li>	
+                            <li class="footer-copy">&copy; 20{{ site.time | date: '%y' }} | handcrafted with <span class="heart">&hearts;</span> by {{ site.author.name }}.</li>	
                         </ul>
                     </div>
                     <div id="map"></div>
                     {% include infobox.html %}
                 </div>
-            </div>    
-        </div>	
+            </div>
+        </div>
     </div>
 </section>
