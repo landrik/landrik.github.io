@@ -77,13 +77,19 @@
         <div class="section-content">
             <h2 class="section-title">About Me</h2>
             <div class="row">
-                <div class="col-md-6 blurb">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1">about me</a></li>
+                <li class=""><a href="#tab2">skills</a></li>
+                <li class=""><a href="#tab3">testimonial</a></li>
+              </ul>
+              <div class="tab-content">
+                <div id="tab1" class="tab-pane fade col-md-6 blurb">
                     <p>Hi! my name is <b>Landry Karege</b>, I am a UI developer based in London, England. In over 6 years I have been in the industry, I have been lucky enough to work with some amazing folks from all background, together we have worked on many projects for a wide range of clients including the recent BBC and American Airlines.</p>
 <p>This has taught me to look at design as not a solution to prettify a webpage, instead as a key answer to many businesses growth as well as perception.</p>
 <p>My work mainly focuses on Interactive, Web- &amp; UI-Design, as well as development. So if you want to work or collaborate with me, do not hesitate to send me an <a href="#contact">email</a>.</p>
 
                 </div>
-                <div class="col-md-6">
+                <div id="tab2" class="tab-pane fade col-md-6">
                     <div id="skillbar">
                         
                         <div class="skill">
@@ -116,7 +122,7 @@
                         
                     </div>
                 </div>
-                <div class="col-md">
+                <div id="tab3" class="tab-pane fade col-md">
                     <div id="quotes_testimonials">
                         <ul id="quote-slider" class="cycle-slideshow" data-cycle-fx="fade" data-cycle-timeout="10000" data-cycle-slides=">li" data-cycle-prev="#prev" data-cycle-next="#next">
                             
@@ -153,10 +159,12 @@
                         </ul>
                    </div>
                 </div>
-            </div>    
+              </div>
+            </div>
         </div>
     </div>
 </section>
+
 <section id="portfolio" class="section">
 <div class="container">
     <div class="section-content">
@@ -172,10 +180,10 @@
                         <div class="caption-content">
                             <h3 class="entry-title">BBC Asset & Marketing</h3>
                             <ul class="portfolio-navigation">
-                              <li class="portfolio-trigger" data-folder="proj1"><i class="icon-eye-open"></i></li>
+                              <li class="portfolio-trigger" data-folder="proj1"><i class="icon-eye"></i></li>
                             </ul>
                          </div>
-                        </figcaption>   
+                        </figcaption>
                     </figure>
                 </li>
                 
@@ -186,10 +194,10 @@
                         <div class="caption-content">
                             <h3 class="entry-title">Oficial London Theatre</h3>
                             <ul class="portfolio-navigation">
-                              <li class="portfolio-trigger" data-folder="proj3"><i class="icon-eye-open"></i></li>
+                              <li class="portfolio-trigger" data-folder="proj3"><i class="icon-eye"></i></li>
                             </ul>
                          </div>
-                        </figcaption>   
+                        </figcaption>
                     </figure>
                 </li>
                 
@@ -200,19 +208,19 @@
                         <div class="caption-content">
                             <h3 class="entry-title">BUPA Inspire</h3>
                             <ul class="portfolio-navigation">
-                              <li class="portfolio-trigger" data-folder="proj7"><i class="icon-eye-open"></i></li>
+                              <li class="portfolio-trigger" data-folder="proj7"><i class="icon-eye"></i></li>
                             </ul>
                          </div>
-                        </figcaption>   
+                        </figcaption>
                     </figure>
                 </li>
                 
             </ul>
             </div>
-        </div>    
+        </div>
     </div>
 </div>
-</section> 
+</section>
 
 <section id="contact" class="section">
     <div class="container">
@@ -334,25 +342,15 @@
         <!-- Loading: jQuery and custom script -->
 		<!--script src="assets/js/jquery-1.10.2.min.js"></script-->
 
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.transit/0.9.12/jquery.transit.min.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-map/3.0-rc1/min/jquery.ui.map.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.transit/0.9.12/jquery.transit.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-map/3.0-rc1/min/jquery.ui.map.min.js"></script>
 
         <script type="text/javascript" src="assets/js/app.min.js"></script>
         <script type="text/javascript" src="assets/js/custom.js"></script>
-				<script type="text/javascript">
-						$("#browserImage > img:gt(0)").hide();
-						setInterval(function() {
-							$('#browserImage > img:first')
-							.fadeOut(1000)
-							.next()
-							.fadeIn(1000)
-							.end()
-							.appendTo('#browserImage');
-						}, 5000);
-				</script>
 		<script type="text/javascript">
 		  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-33367937-1']);

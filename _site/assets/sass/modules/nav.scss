@@ -1,0 +1,49 @@
+/* 2.1 Navigation */
+
+#nav {
+  width: inherit;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  margin: 0 auto;
+  border-bottom: 1px solid $dodger_blue;
+  transition: background-color 1s linear;
+
+  ul {
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;
+      display: inline-block;
+      *display: inline;
+      @include animation(moveUp 0.5s ease 3s both);
+      li {
+        padding: 0 8px;
+        line-height: 60px;
+        display: inline-block;
+        float: left;
+        text-transform: uppercase;
+        a {
+          display: block;
+          font-size: 0.938em;
+          letter-spacing: 0.1em;
+          color: $dodger_blue;
+          text-decoration: none;
+          font-family: $brandon;
+          font-weight: bold;
+          &:hover {
+            color: $athens_gray;
+          }
+        }
+        &.current a {
+          color: $athens_gray;
+        }
+      }
+    }
+  &.sticky {
+      position: fixed !important;
+      z-index: 1000000;
+      top: 10px;
+      background-color: red;
+    }
+
+}

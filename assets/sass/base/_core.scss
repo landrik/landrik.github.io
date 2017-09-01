@@ -1,29 +1,27 @@
-/*Theme Name: time is now and we are nowhere
-Theme URL: http://landrik.com
-Author: Landry Karege
-Author URL: http://landrik.com
-Date: 10/07/12
-Notes: Dear Friend, i'm honored that you've made your way
-       down here to see what is going on,
-       whilst i'm chuffed that you are here,
-       please don't nick anything!
+// Theme Name: time is now and we are nowhere
+// Theme URL: http://landrik.com
+// Author: Landry Karege
+// Author URL: http://landrik.com
+// Date: 10/07/12
+// Notes: Dear Friend, i'm honored that you've made your way
+//        down here to see what is going on,
+//        whilst i'm chuffed that you are here,
+//        please don't nick anything!
 
-*/
+@import "tools/mixins";
+@import "tools/functions";
+@import "tools/animation";
 
-@import 'tools/mixins';
-@import 'tools/functions';
-@import 'tools/animation';
+@import "base/reset";
+@import "base/vars";
+@import "base/grid";
+@import "base/type";
+@import "base/layout";
 
-@import 'base/reset';
-@import 'base/vars';
-@import 'base/grid';
-@import 'base/type';
-@import 'base/layout';
+@import "modules/input";
+@import "modules/button";
+@import "modules/form";
+@import "modules/slIcons";
 
-@import 'modules/input';
-@import 'modules/button';
-@import 'modules/form';
-@import 'modules/icons';
-
-@import 'page/index';
-@import 'tools/media-queries';
+@import "page/index";
+@import "tools/media-queries";

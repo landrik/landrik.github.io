@@ -55,6 +55,7 @@
     $.fn.Gateway = function() {
         $.ajaxSetup({ cache: true });
         var gatewayHeight = window.innerHeight,
+
             gateway = $('<div class="gateway-show"></div>'),
             loading = $('<div class="portfolio-loading"><ul class="spinner"><li></li><li></li><li></li></ul></div>'),
             $window = $( window ), winsize, $body = $( 'html, body' );
@@ -63,7 +64,7 @@
         gateway.on('click', '.gatewayClose', function(e){
             e.preventDefault();
             gateway.prev().removeClass('open');
-            gateway.parent().removeClass('active')
+            gateway.parent().removeClass('active');
             gateway.slideUp();
         });
         return this.each(function(){
@@ -73,6 +74,7 @@
                     newFolder = $this.data('folder'),
                     newHTML = 'work/' + newFolder + '/index.html',
                     //targetId  = $(this).attr('id'),
+                    scrollToPosition = $(gateway).offset().top,
                     parent = $(this).parent().parent().parent().parent().parent();
 
                 $('ul.projects li').each(function(){
@@ -80,41 +82,42 @@
                 });
                 if(parent.next().hasClass('gateway-show')){
                     gateway.slideToggle("600");
+
                 }else{
                     gateway.insertAfter(parent).css('display', 'block');
                 }
                 if(gateway.css('display') === 'block'){
                     gateway.prev().addClass('open');
-                    gateway.parent().addClass('active')
+                    gateway.parent().addClass('active').css('margin-top', function(){
+                        if ($(window).height() > 960) {
+                           //alert('greater than ' + $(window).height());
+                            return '0px';
+                        } else {
+                            //alert('less than ' + $(window).height());
+                            return ($(window).height() - 960) + 'px';
+                        }
+                    });
+                    $('#nav').css({'background-color':'rgba(40, 48, 65, 0.8)'});
+                    //$body.animate({scrollTop: scrollToPosition - $(window).height() });
                 }
 
-                $body.animate({
-                    scrollTop:gateway.offset().top - $(".grids .open").height()-110
-                }, 600, function() {
-                    gateway.css('height', 'auto');
-                    gateway.fadeIn('slow');
-                });
+
+                // $body.animate({
+                //     console.log("scroll up");
+                //     scrollTop: gateway.offset().top - $(".grids .open").height()-110,
+                //
+                //     //scrollTop:gateway.offset().top - ($(".grids .open").height() - $(window).height())
+                // }, 600, function() {
+                //     gateway.css('height', 'auto');
+                //     gateway.fadeIn('slow');
+                // });
 
                //gateway.html(loading).load("assets/lib/portfolio.html #article_"+targetId);
                 gateway.html(loading).load(newHTML);
+                return false;
              });
         });
     };
-
-//    function workLoad(){
-//        $.ajaxSetup({ cache: true });
-//        $('.thumb-unit').click(function(){
-//            var $this = $(this),
-//                    newTitle = $this.find('strong').text(),
-//                    newFolder = $this.data('folder'),
-//                    spinner = '<div class="loader">Loading...</div>',
-//                    newHTML = 'work/' + newFolder;
-//                $('.project-load').html(spinner).load(newHTML);
-//                $('.project-title').text(newTitle)
-//            });
-//    };
-
-
 
 
     $('ul.projects').Gateway();
@@ -316,8 +319,8 @@
         disableDefaultUI: true
     };
 
-    map = new google.maps.Map(document.getElementById('map'), mapOptions);
     marker = new CustomMarker(map.getCenter(), map);
+    marker.setMap(map);
     infobox = new InfoBox({
         content: document.getElementById("infobox"),
         disableAutoPan: false,
@@ -333,7 +336,8 @@
         infoBoxClearance: new google.maps.Size(1, 1)
     });
 
-    marker.setMap(map);
+
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
 
@@ -462,7 +466,7 @@
         step: 500, slide: function(event, ui) {
             $("#projBudget").val("£" + ui.value);
         }
-    });
+      });
       $("#projBudget").val("£" + $("#budget-slider").slider("value"));
     };
 
@@ -491,64 +495,8 @@
     };
     textRotator('.change-text span');
 
-
-    //slideshow
-
-    // function Slideshow( element ) {
-  	// 	this.el = document.querySelector( element );
-  	// 	this.init();
-  	// }
-  	// Slideshow.prototype = {
-  	// 	init: function() {
-  	// 		this.wrapper = this.el.querySelector( ".slider-wrapper" );
-  	// 		this.slides = this.el.querySelectorAll( ".slide" );
-  	// 		this.previous = this.el.querySelector( ".slider-previous" );
-  	// 		this.next = this.el.querySelector( ".slider-next" );
-  	// 		this.index = 0;
-  	// 		this.total = this.slides.length;
-  	// 		this.timer = null;
-    //
-  	// 		this.action();
-  	// 		this.stopStart();
-  	// 	},
-  	// 	_slideTo: function( slide ) {
-  	// 		var currentSlide = this.slides[slide];
-  	// 		currentSlide.style.opacity = 1;
-    //
-  	// 		for( var i = 0; i < this.slides.length; i++ ) {
-  	// 			var slide = this.slides[i];
-  	// 			if( slide !== currentSlide ) {
-  	// 				slide.style.opacity = 0;
-  	// 			}
-  	// 		}
-  	// 	},
-  	// 	action: function() {
-  	// 		var self = this;
-  	// 		self.timer = setInterval(function() {
-  	// 			self.index++;
-  	// 			if( self.index == self.slides.length ) {
-  	// 				self.index = 0;
-  	// 			}
-  	// 			self._slideTo( self.index );
-    //
-  	// 		}, 3000);
-  	// 	},
-  	// 	stopStart: function() {
-  	// 		var self = this;
-  	// 		self.el.addEventListener( "mouseover", function() {
-  	// 			clearInterval( self.timer );
-  	// 			self.timer = null;
-    //
-  	// 		}, false);
-  	// 		self.el.addEventListener( "mouseout", function() {
-  	// 			self.action();
-    //
-  	// 		}, false);
-  	// 	}
-  	// };
-  	// document.addEventListener( "DOMContentLoaded", function() {
-  	// 	var slider = new Slideshow( "#main-slider" );
-  	// });
-
+    if (screen.width <= 480) {
+      $('#profile').addClass('mobile');
+    }
 
 })(jQuery);

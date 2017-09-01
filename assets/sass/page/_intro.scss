@@ -3,7 +3,7 @@
   height: 100%;
   position: relative;
   color: #fff;
-  background-color: $ebony_clay;
+  background: $ebony_clay url("../img/pattern.png") repeat 0 0;
   text-align: center;
   .container {
     position: relative;
@@ -16,12 +16,12 @@
       font-weight: 900;
       letter-spacing: 0.030em;
       text-transform: uppercase;
-      @include animation(moveUp 0.5s ease 2s both);    
+      @include animation(moveUp 0.5s ease 2s both);
     }
-    h2, 
+    h2,
     .avatar {
         @include animation(fadeIn 0.5s ease 2s both);
-    }  
+    }
     h2.intro {
       margin: 0;
       padding: 0;
@@ -60,7 +60,7 @@
           opacity: 0;
           line-height: 1;
           clip: rect(0px, 0px, 235px, 0px);
-          @include transition(all 0.4s ease-in-out);    
+          @include transition(all 0.4s ease-in-out);
           &:after {
             content: '';
             background: white;
@@ -74,10 +74,10 @@
           &.active {
             opacity: 1;
             clip: rect(0, 245px, 245px, 0px);
-            @include transition(all 0.85s ease-in-out);  
+            @include transition(all 0.85s ease-in-out);
           }
         }
-      }    
+      }
     }
     .avatar {
       height: 210px;
@@ -85,10 +85,11 @@
       display: block;
       margin: 0 auto;
       opacity: .8;
-      background: url("../img/me.jpg") center center no-repeat / 100%;    
+      background: url("../img/me.jpg") center center no-repeat;
+      background-size: 100%;
       border: 4px solid $dodger_blue;
-      @include border-radius(150px);    
-    }  
+      @include border-radius(150px);
+    }
    }
    #overlay {
         width: 100%;
@@ -98,5 +99,5 @@
         top: 0px;
         margin: 0px;
         padding: 0px;
-    }    
+    }
 }
