@@ -94,10 +94,11 @@
                             return '0px';
                         } else {
                             //alert('less than ' + $(window).height());
-                            return ($(window).height() - 960) + 'px';
+                            //return ($(window).height() - 960) + 'px';
+                            return '';
                         }
                     });
-                    $('#nav').css({'background-color':'rgba(40, 48, 65, 0.8)'});
+                    $('body.viewing-page-3 #nav').css({'background-color':'rgba(40, 48, 65, 0.8)'});
                     //$body.animate({scrollTop: scrollToPosition - $(window).height() });
                 }
 
